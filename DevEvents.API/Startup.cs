@@ -29,10 +29,14 @@ namespace DevEvents.API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            ); 
 
             var connectionString = Configuration.GetConnectionString("DevEventsCn");
-            services.AddDbContext<DevEventsDbContext>(options => options.UseSqlServer(connectionString));
+
+            // services.AddDbContext<DevEventsDbContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<DevEventsDbContext>(options => options.UseInMemoryDatabase("DevEvents"));
 
             services.AddSwaggerGen(c =>
             {

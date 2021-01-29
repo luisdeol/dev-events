@@ -19,5 +19,6 @@ namespace DevEvents.API.Entidades
         public Categoria Categoria { get; set; }
         public int IdUsuario { get; set; }
         public Usuario Usuario { get; set; }
+        public List<Inscricao> Inscricoes { get; set; }
     }
 }

@@ -13,5 +13,6 @@ namespace DevEvents.API.Entidades
         public string Email { get; set; }
         public DateTime DataCadastro { get; set; }
         public bool Ativo { get; set; }
+        public List<Inscricao> Inscricoes { get; set; }
     }
 }

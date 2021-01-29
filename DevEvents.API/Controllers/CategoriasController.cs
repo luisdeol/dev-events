@@ -16,9 +16,20 @@ namespace DevEvents.API.Controllers
         [HttpGet]
         public IActionResult ObterTodas()
         {
-            var categorias = _dbContext.Categorias.ToList();
+            //var connectionString = _dbContext.Database.GetDbConnection().ConnectionString;
 
-            return Ok(categorias);
+            //using (var sqlConnection = new SqlConnection(connectionString))
+            //{
+            //    var script = "SELECT Id, Descricao FROM Categorias";
+
+            //    var categorias = sqlConnection.Query<Categoria>(script);
+
+            //    return Ok(categorias);
+            //}
+
+            var categoria = _dbContext.Categorias.ToList();
+
+            return Ok(categoria);
         }
     }
 }
